@@ -14,7 +14,8 @@ app.use(express.urlencoded({ extended: false}));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(require('./controllers/api/blog-routes.js'));
+app.use(require('./controllers/api/blogroutes.js'));
+app.use(require('./controllers/api/posterroutes.js'));
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));

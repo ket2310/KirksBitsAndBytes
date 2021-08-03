@@ -1,23 +1,29 @@
 <head>
-  <title>Page</title>
+  <title>Kirk's Bits and Bytes Tech Blog</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-  <header>
-    <h1>Kirk's Bits and Bytes Tech Blog</h1>
-    <nav>
-      <ul>
-        <li><a href="../all">Home</a></li>&nbsp; | &nbsp;
-        <li><a href="../dashboard.handlebars">Dashboard</a></li>&nbsp; | &nbsp;
-        <li><a href="../login">Login</a></li>&nbsp; | &nbsp;
-        <li><a href="../logout">Logout</a></li>&nbsp; | &nbsp;
-      </ul>
-    </nav>
-  </header>
-  <main class="container container-fluid mt-5">
-    {{{ body }}}
-  </main>
+
+  <div class="flex-column justify-space-around">
+    <header class="display-flex justify-space-between align-center p-2">
+      <h1>Kirk's Bits and Bytes Tech Blog</h1>
+      <nav>
+        <a href="/">Home Page</a>
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <a href="/profile">profile</a> |
+        <button class="no-button" id="logout">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+      </nav>
+    </header>
+    <main class="container container-fluid mt-5">
+      <!-- Render the sub layout -->
+      {{{ body }}}
+    </main>
+
 
 </body>
 
