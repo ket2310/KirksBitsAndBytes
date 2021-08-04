@@ -1,5 +1,6 @@
 <head>
   <title>Kirk's Bits and Bytes Tech Blog</title>
+  {{!-- <link rel="stylesheet" href="/css/jass.css"> --}}
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
@@ -9,15 +10,16 @@
     <header class="display-flex justify-space-between align-center p-2">
       <h1>Kirk's Bits and Bytes Tech Blog</h1>
       <nav>
-        <a href="/">Home Page</a> &nbsp;&nbsp; |&nbsp;&nbsp; 
-        <a href="/da">Home Page</a> &nbsp;&nbsp; |&nbsp;&nbsp;  
-        <!-- Conditionally render login or logout links -->
+        <a href="/">Home</a> &nbsp;&nbsp; |&nbsp;&nbsp;
+
+        <a href="/dashboard">Dashboard</a> &nbsp;&nbsp; |&nbsp;&nbsp;
+
         {{#if logged_in}}
-        <a href="/profile">profile</a> &nbsp;&nbsp; |&nbsp;&nbsp; |
-        <button class="no-button" id="logout">logout</button>
+            <button class="no-button" id="logout">logout</button>         
         {{else}}
-        <a href="/login">login</a>
+            <a href="/login">Login</a> &nbsp;&nbsp; 
         {{/if}}
+            
       </nav>
     </header>
     <main class="container container-fluid mt-5">
@@ -25,7 +27,9 @@
       {{{ body }}}
     </main>
 
-
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>

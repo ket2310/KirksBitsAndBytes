@@ -18,18 +18,21 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   try {
-    const posterData = await Poster.findOne({ where: { name: req.body.name } });
-
+    console.log("Poster route 1")
+    const posterData = await Poster.findOne({ where: { email: req.body.email } });
+    console.log("Poster route 2")
     if (!posterData) {
+      console.log("Poster route 3")
       res
         .status(400)
         .json({ message: 'Incorrect name or password, please try again' });
       return;
     }
-
+    console.log("Poster route 4")
     const validPassword = await posterData.checkPassword(req.body.password);
-
+    console.log("Poster route 5")
     if (!validPassword) {
+      console.log("Poster route 6")
       res
         .status(400)
         .json({ message: 'Incorrect name or password, please try again' });

@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model,  DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection.js');
 
@@ -23,10 +23,19 @@ Blog.init(
         },
 
         date_posted: {
-            type: DataTypes.STRING,
-            allowNull: false
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW,
         },
 
+        comment_id:{
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'comment',
+                key: 'id',
+            },
+        },
+        
         poster_id: {
             type: DataTypes.INTEGER,
             references: {
