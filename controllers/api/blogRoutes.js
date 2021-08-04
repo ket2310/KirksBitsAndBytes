@@ -1,17 +1,39 @@
 const router = require('express').Router();
 const { Blog } = require('../../models');
-const withAuth = require('../../utils');
+const withAuth = require('../../utils/auth');
 
-//get all bloges
-router.get('/', async (req, res) => {
-  res.render('all');
+router.post('/', withAuth, async (req, res) => {
+  try {
+    const newblog = await Blog.create({
+      ...req.body,
+      poster_id: req.session.user_id,
+    });
+
+    res.status(200).json(newblog);
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
-//get one blog
-router.get('/blog/:id', async (req, res) => {
-  // This method renders the 'blog' template, and uses params to select the correct blog to render in the template, based on the id of the blog.
-  return res.render('blog', dishes[req.params.num - 1]);
-});
 
+router.delete('/:id', withAuth, async (req, res) => {
+  try {
+    const blogData = await Blog.destroy({
+      where: {
+        id: req.params.id,
+        poster_id: req.session.user_id,
+      },
+    });
+
+    if (!blogData) {
+      res.status(404).json({ message: 'No blog found with this id!' });
+      return;
+    }
+
+    res.status(200).json(blogData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;

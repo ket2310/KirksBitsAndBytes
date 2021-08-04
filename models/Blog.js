@@ -22,13 +22,8 @@ Blog.init(
             allowNull: false
         },
 
-        author: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-
         date_posted: {
-            type: DataTypes.DATEONLY,
+            type: DataTypes.STRING,
             allowNull: false
         },
 

@@ -9,10 +9,11 @@
     <header class="display-flex justify-space-between align-center p-2">
       <h1>Kirk's Bits and Bytes Tech Blog</h1>
       <nav>
-        <a href="/">Home Page</a>
+        <a href="/">Home Page</a> &nbsp;&nbsp; |&nbsp;&nbsp; 
+        <a href="/da">Home Page</a> &nbsp;&nbsp; |&nbsp;&nbsp;  
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/profile">profile</a> |
+        <a href="/profile">profile</a> &nbsp;&nbsp; |&nbsp;&nbsp; |
         <button class="no-button" id="logout">logout</button>
         {{else}}
         <a href="/login">login</a>
