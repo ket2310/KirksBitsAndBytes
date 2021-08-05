@@ -5,9 +5,9 @@ const commentPostHandler = async (event) => {
     console.log('You are here!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
   if (comment)
   {
-      const response = await fetch('/api/comments', {
+      const response = await fetch('/api/comments/addcomment', {
         method: 'POST',
-        body: JSON.stringify({ comments }),
+        body: JSON.stringify({ comment }),
         headers: { 'Content-Type': 'application/json' },
       });
   
