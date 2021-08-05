@@ -13,9 +13,16 @@ Comment.init(
         }, 
         comments:{
             type: DataTypes.STRING,
-            allowNull: true
+            allowNull: false
         },
-
+        blog_id:{
+          type: DataTypes.INTEGER,
+          references: {
+              model: 'blog',
+              key: 'id',
+          },
+      },
+      
       },
   {
     sequelize,

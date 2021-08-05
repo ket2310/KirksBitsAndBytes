@@ -1,5 +1,4 @@
 const Blog  = require('./Blog');
-const BlogComment = require('./BlogComment');
 const Poster  = require('./Poster');
 const Comment = require('./Comment');
 
@@ -13,18 +12,17 @@ Blog.belongsTo(Poster, {
     foreignKey: 'poster_id'
 });
 
-// Products belongToMany Tags (through ProductTag)
-Blog.belongsToMany(Comment, {
-    through: {
-      model: BlogComment,
-      unique: false
-    } ,  as:'feedback'
-  });
-  
+Blog.hasMany(Comment, {
+  foreignKey: 'blog_id',
+  onDelete: 'CASCADE' 
+ });
+
+Comment.belongsTo(Blog, {
+  foreignKey: 'blog_id'
+})
 
 module.exports = { 
     Blog,
     Poster,
-    Comment,
-    BlogComment
+    Comment
 }
