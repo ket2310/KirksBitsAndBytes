@@ -7,7 +7,7 @@ class Poster extends Model {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
-
+// Poster refers to blog poster
 Poster.init(
   {
     id: {

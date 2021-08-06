@@ -1,10 +1,27 @@
 <!-- This template includes hardcoded data. In future lessons, you will be rendering data dynamically. -->
 <div class="menu-container">
   <div class="card-header col-md-10">
-    <h2>
-     Dashboard
-    </h2>
+    <h3>Create a Blog:</h3>
+
+    <form class="form blogForm">
+
+      <label>Title:</label>
+      <div class="row mb-2">
+        <div class="col-md-8">
+          <input type="text" id="title" />
+        </div>
+      </div>
+      <label>Content:</label>
+      <div class="row mb-2">
+        <div class="col-md-8">
+          <textarea id="content" name="content" rows="10" cols="100"></textarea>
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-primary" type="submit">Create</button>
+        </div>
+      </div>
   </div>
 
-  </div>
 </div>
+</div>
+<script src="/js/blog.js"
