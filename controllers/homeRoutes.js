@@ -63,16 +63,20 @@ router.get('/blog/:id',  withAuth, async (req, res) => {
 // Use withAuth middleware to prevent access to route
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
-    // Find the logged in user based on the session ID
-    const posterData = await Poster.findByPk(req.session.poster_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Blog }],
-    });
+    const blogData = await Blog.findAll({
+      where:{
+        poster_id: req.session.poster_id,
+      },
+    })
+      // Serialize data so the template can read it
+      const blogs = blogData.map((blog) =>
+      blog.get({ plain: true })
+    );
 
-    const poster = posterData.get({ plain: true });
 
+  
     res.render('dashboard', {
-      ...poster,
+      blogs,
       logged_in: true
     });
   } catch (err) {
@@ -94,6 +98,8 @@ router.get('/signup' , (req, res) =>{
     res.render('signup')
 })
 
-
+router.get('/createblog' , (req, res) =>{ 
+  res.render('createblog')
+})
 
 module.exports = router;

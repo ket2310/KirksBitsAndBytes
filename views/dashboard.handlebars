@@ -1,27 +1,20 @@
 <!-- This template includes hardcoded data. In future lessons, you will be rendering data dynamically. -->
 <div class="menu-container">
   <div class="card-header col-md-10">
-    <h3>Create a Blog:</h3>
+    <h1>Welcome To Your Dashboard</h1>
+    <h2>Here are your recent blogs</h2>
 
-    <form class="form blogForm">
+    {{#each blogs}}
+    <h2>{{title}}</h2>
+    <p>{{content}}</p>
+    <p>Created by {{poster.name}} on {{format_date date_posted}}</p>
 
-      <label>Title:</label>
-      <div class="row mb-2">
-        <div class="col-md-8">
-          <input type="text" id="title" />
-        </div>
+    {{/each}}
+     <div class="col-md-4">
+        <button class="btn btn-primary" id="blogForm" type="submit">Create New Blog</button>
       </div>
-      <label>Content:</label>
-      <div class="row mb-2">
-        <div class="col-md-8">
-          <textarea id="content" name="content" rows="10" cols="100"></textarea>
-        </div>
-        <div class="col-md-4">
-          <button class="btn btn-primary" type="submit">Create</button>
-        </div>
-      </div>
-  </div>
-
+    </div>
 </div>
 </div>
-<script src="/js/blog.js"></script>
+</div>
+<script src="/js/dashboard.js"></script>

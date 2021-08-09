@@ -1,18 +1,18 @@
 <!-- Loop over each object in the blogs array -->
 <!-- Each item in the blogs array AS blog -->
 
-{{#each blogs as |blog| }}
+{{#each blogs }}
 
 <div class="row mb-4 blog">
   <div class="col-md-5">
     <h2>
       <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      <a href="/blog/{{blog.id}}">{{blog.title}}</a>
+      <a href="/blog/{{id}}">{{title}}</a>
     </h2>
     <p>
-    <h1><span>{{blog.content}}</span></h1>
+    <h1><span>{{content}}</span></h1>
     </p>
-    <p>Created by {{blog.poster.name}} on {{ format_date blog.date_posted}} </p>
+    <p>Created by {{poster.name}} on {{ format_date date_posted}} </p>
   </div>
   <div>
     {{#each comments as |comment|}}
