@@ -9,6 +9,7 @@ router.post('/addcomment', async (req, res) => {
     const newcomment = await Comment.create({
       ...req.body,
       blog_id: req.body.blogid,
+      comments: req.body.comment,
     });
 
     res.status(200).json(newcomment);
