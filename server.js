@@ -15,7 +15,10 @@ const hbs = exphbs.create({ helpers });
 
 const sess = {
   secret: 'ribbon kolidoscope',
-  cookie: {},
+  cookie: {
+    // Stored in milliseconds (86400 === 1 day)
+    maxAge: 386400,
+  },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({

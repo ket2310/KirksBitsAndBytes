@@ -1,5 +1,5 @@
 <div class="text-center">
-    <input type="hidden" value="{{id}}" id="blogid"/>
+    <input type="hidden" value="{{id}}" id="blogid" />
     <h2>{{title}}</h2>
     <p>{{content}}</p>
     <p>Created by {{poster.name}} on {{format_date date_posted}}</p>
@@ -7,14 +7,15 @@
     <div class="col-md-6 comment-list">
         <h3>Leave a Comment:</h3>
         <form class="form commentForm">
-        <div class="row mb-2">
-            <div class="col-md-8">
-                <textarea id="blogcomment" name="blogcomment" rows="4" cols="50"></textarea>
+            <div class="row mb-2">
+                <div class="col-md-8">
+                    <textarea id="blogcomment" name="blogcomment" rows="4" cols="50"></textarea>
+                </div>
+
             </div>
             <div class="col-md-4">
-           <button class="btn btn-primary" type="submit">Leave a comment</button>
+                <button class="btn btn-light" type="submit">Leave a comment</button>
             </div>
-        </div>
         </form>
 
     </div>

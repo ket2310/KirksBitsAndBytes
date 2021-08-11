@@ -17,11 +17,12 @@ router.post('/', async (req, res) => {
 
 
 router.delete('/:id', withAuth, async (req, res) => {
+  console.log('Are we here yet????????????????????????????')
   try {
     const blogData = await Blog.destroy({
       where: {
         id: req.params.id,
-        poster_id: req.session.user_id,
+        poster_id: req.session.poster_id,
       },
     });
 
@@ -35,5 +36,25 @@ router.delete('/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.put('/:id', withAuth, async (req, res) => {
+
+  try {
+    const blog = await Blog.update(
+      {
+          content: req.body.content,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+    res.status(200).json(blog);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
 module.exports = router;

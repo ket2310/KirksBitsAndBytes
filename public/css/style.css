@@ -3,7 +3,9 @@
     --block-font: rgb(6, 53, 35);
   
   }
-  
+  .dashboard {
+    align-content: center;
+  }
   body {
     line-height: 1.3;
   }
@@ -26,7 +28,7 @@
     }
     
     h2 {
-      
+      width: auto;
       font-size: 250%;
       background-color: var(--block-background);
       color: var(--block-font);

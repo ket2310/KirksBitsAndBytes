@@ -1,20 +1,18 @@
-<!-- This template includes hardcoded data. In future lessons, you will be rendering data dynamically. -->
 <div class="menu-container">
-  <div class="card-header col-md-10">
-    <h1>Welcome To Your Dashboard</h1>
-    <h2>Here are your recent blogs</h2>
+  <div class="card-header col-md-10 dashboard">
+    <h2>Welcome To Your Dashboard</h2>
+    <h1>Here are your recent blogs</h1>
 
     {{#each blogs}}
-    <h2>{{title}}</h2>
+    <a href="/myblog/{{id}}">{{title}}</a>
     <p>{{content}}</p>
     <p>Created by {{poster.name}} on {{format_date date_posted}}</p>
 
     {{/each}}
-     <div class="col-md-4">
-        <button class="btn btn-primary" id="blogForm" type="submit">Create New Blog</button>
-      </div>
+    <div class="col-md-4">
+      <button class="btn btn-light" id="blogForm" type="submit">Create New Blog</button>
     </div>
-</div>
-</div>
+  </div>
+
 </div>
 <script src="/js/dashboard.js"></script>

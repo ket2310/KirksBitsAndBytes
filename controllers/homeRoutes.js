@@ -35,7 +35,6 @@ router.get('/', async (req, res) => {
 
 router.get('/blog/:id',  withAuth, async (req, res) => {
   try {
-    console.log('')
     const blogData = await Blog.findByPk(req.params.id, {
       include: [
         {
@@ -52,6 +51,32 @@ router.get('/blog/:id',  withAuth, async (req, res) => {
     const blog = blogData.get({ plain: true });
     console.log(blog)
     res.render('blog', {
+      ...blog,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/myblog/:id',  withAuth, async (req, res) => {
+  try {
+    const blogData = await Blog.findByPk(req.params.id, {
+      include: [
+        {
+          model: Poster,
+          attributes: ['name'],
+        },
+        {
+          model: Comment,
+          attributes: ['comments`']
+        }
+      ],
+    });
+
+    const blog = blogData.get({ plain: true });
+  
+    res.render('myblog', {
       ...blog,
       logged_in: req.session.logged_in
     });
