@@ -26,12 +26,12 @@ const seedDatabase = async () => {
     returning: true,
   })
 
-  for (const comment of commentData) {
-    await Comment.create({
-      ...comment,
-      blog_id:  comments[Math.floor(Math.random() * comments.length)].id,
-    })
-  }
+  // for (const comment of commentData) {
+  //   await Comment.create({
+  //     ...comment,
+  //     blog_id:  comments[Math.floor(Math.random() * comments.length)].id,
+  //   })
+  // }
 
   process.exit(0);
 };
