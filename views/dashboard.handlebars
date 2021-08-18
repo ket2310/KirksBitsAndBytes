@@ -1,17 +1,15 @@
-<div class="menu-container">
-  <div class="card-header col-md-10 dashboard">
-    <h2>Welcome To Your Dashboard</h2>
-    <h1>Here are your recent blogs</h1>
-
-    {{#each blogs}}
-    <a href="/myblog/{{id}}">{{title}}</a>
-    <p>{{content}}</p>
-    <p>Created by {{poster.name}} on {{format_date date_posted}}</p>
-
-    {{/each}}
-    <div class="col-md-4">
-      <button class="btn btn-dark" id="blogForm" type="submit">Create New Blog</button>
-    </div>
+<div class="menu-container dashboard">
+  <h2>Welcome To Your Dashboard</h2>
+  <h1>Here are your recent blogs</h1>
+  <hr style="border: 3px solid rgb(6, 53, 35); border-radius: 5px;" />
+  {{#each blogs}}
+  <a href="/myblog/{{id}}">{{title}}</a>
+  <p>{{content}}</p>
+  <p>Created by {{poster.name}} on {{format_date date_posted}}</p>
+  <hr style="border: 1.5px solid rgb(6, 53, 35); border-radius: 5px;" />
+  {{/each}}
+  <div class="col-md-4">
+    <button class="btn btn-dark" id="blogForm" type="submit">Create New Blog</button>
   </div>
 
 </div>
